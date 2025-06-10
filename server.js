@@ -2,6 +2,8 @@ const express = require('express');
 require('dotenv').config();
 const connectDB = require('./config/db');
 const errorHandler = require('./middlewares/errorHandler');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 const app = express();
 app.use(express.json());
@@ -13,6 +15,9 @@ connectDB();
 app.get('/', (req, res) => {
     res.status(200).send("Task Manager Backend API is running");
 });
+
+// Swagger docs route
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));

@@ -1,0 +1,234 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Task Manager",
+        "description": "A RESTful API for managing tasks with user authentication and CRUD operations",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:5000"
+        }
+    ],
+    "paths": {
+        "/api/auth/signup": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Signup",
+                "description": "Register a new user account with name, email, and password",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "name": "Yugandhar",
+                                    "email": "yugandhar@example.com",
+                                    "password": "syamala"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Login",
+                "description": "Authenticate a user and return access token",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "name": "Yugandhar",
+                                    "email": "yugandhar@example.com",
+                                    "password": "syamala"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tasks/": {
+            "post": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "createTask",
+                "description": "Create a new task with title, status, and due date. Requires authentication.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "title": "Complete backend assignment",
+                                    "status": "in progress",
+                                    "dueDate": "2025-06-12"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDE3MmMyMzM2NjBmOWRmNTFhNDMxMCIsImlhdCI6MTc0OTI4MjUzNCwiZXhwIjoxNzQ5Mjg2MTM0fQ.OnDb1YvtwrgzoXt5FE9z5v3aW6Btkm32FHFlbQXK0Gw"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "getAllTasks",
+                "description": "Retrieve all tasks for the authenticated user",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDE3MmMyMzM2NjBmOWRmNTFhNDMxMCIsImlhdCI6MTc0OTI4MjUzNCwiZXhwIjoxNzQ5Mjg2MTM0fQ.OnDb1YvtwrgzoXt5FE9z5v3aW6Btkm32FHFlbQXK0Gw"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tasks/6843f000715bcad8a6da8b76": {
+            "get": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "getTaskById",
+                "description": "Retrieve a specific task by its ID for the authenticated user",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDE3MmMyMzM2NjBmOWRmNTFhNDMxMCIsImlhdCI6MTc0OTI4MjUzNCwiZXhwIjoxNzQ5Mjg2MTM0fQ.OnDb1YvtwrgzoXt5FE9z5v3aW6Btkm32FHFlbQXK0Gw"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "updateTask",
+                "description": "Update an existing task's title, status, or due date. Requires authentication.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "title": "Complete backend assignment",
+                                    "status": "completed",
+                                    "dueDate": "2025-06-12"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDE3MmMyMzM2NjBmOWRmNTFhNDMxMCIsImlhdCI6MTc0OTI4MjUzNCwiZXhwIjoxNzQ5Mjg2MTM0fQ.OnDb1YvtwrgzoXt5FE9z5v3aW6Btkm32FHFlbQXK0Gw"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Tasks"
+                ],
+                "summary": "deleteTask",
+                "description": "Delete a specific task by its ID. Requires authentication.",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDE3MmMyMzM2NjBmOWRmNTFhNDMxMCIsImlhdCI6MTc0OTI4MjUzNCwiZXhwIjoxNzQ5Mjg2MTM0fQ.OnDb1YvtwrgzoXt5FE9z5v3aW6Btkm32FHFlbQXK0Gw"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
