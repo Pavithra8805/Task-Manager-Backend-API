@@ -92,3 +92,9 @@ task-manager-api/
 - **Pagination** and **sorting**
 - Email notifications **(via nodemailer)**
 - **Task tagging**
+
+---
+
+## 🚀 **Live Deployed Link**
+
+🔗 [https://task-manager-backend-api-z2wl.onrender.com](https://task-manager-backend-api-z2wl.onrender.com)
