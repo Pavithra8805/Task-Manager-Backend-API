@@ -9,16 +9,16 @@
 
 ## 🧰 **Technology Stack**
 
-| **Layer**            | **Tech Used**                                  |
-|----------------------|------------------------------------------------|
-| **Backend**          | Node.js, Express.js                            |
-| **Authentication**   | JWT (JSON Web Token), bcrypt                   |
-| **Validation**       | Joi or express-validator                       |
-| **Database**         | Any (MongoDB, PostgreSQL, MySQL, SQLite, etc.) – student choice |
-| **Documentation**    | Swagger                                        |
-| **Deployment**       | Render or similar                              |
-| **Testing**          | Postman                                        |
-| **Version Control**  | Git + GitHub                                   |
+| **Layer**           | **Tech Used**                |
+| ------------------- | ---------------------------- |
+| **Backend**         | Node.js, Express.js          |
+| **Authentication**  | JWT (JSON Web Token), bcrypt |
+| **Validation**      | Joi or express-validator     |
+| **Database**        | MongoDB (Mongoose)           |
+| **Documentation**   | Swagger                      |
+| **Deployment**      | Render                       |
+| **Testing**         | Postman                      |
+| **Version Control** | Git + GitHub                 |
 
 ---
 
@@ -34,8 +34,8 @@ Build a **secure**, **production-grade** Task Manager Backend API that includes:
 
 You’ll also learn to:
 
-- **Deploy** your backend service  
-- Create a **walkthrough video**  
+- **Deploy** your backend service
+- Create a **walkthrough video**
 - Showcase your project in a **LinkedIn post**
 
 ---
@@ -69,19 +69,55 @@ task-manager-api/
 ├── swagger.json     # Or Swagger setup via code
 ├── README.md
 └── index.js         # App entry point
-
 ```
+---
+## ⚙️ **Setup Instructions**
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/your-username/task-manager-backend-api.git
+cd task-manager-backend-api
+```
+2. **Install dependencies**
+```bash
+npm install
+```
+3. **Setup environment variables**
+
+* Create a `.env` file
+* Copy contents from `.env.example` and fill in your details
+
+4. **Run the project**
+
+```bash
+npm run dev
+```
+---
+
+## 📮 **API Endpoints**
+
+### 🔐 Authentication
+
+* `POST /api/auth/signup` → Register a user
+* `POST /api/auth/login` → Login and get token
+
+### 📝 Tasks
+
+* `POST /api/tasks` → Create a task *(requires login)*
+* `GET /api/tasks` → Get all tasks *(requires login)*
+* `GET /api/tasks/:id` → Get task by ID *(requires login)*
+* `PUT /api/tasks/:id` → Update task *(requires login)*
+* `DELETE /api/tasks/:id` → Delete task *(requires login)*
 
 ---
 
 ## 📌 **Key Guidelines**
-
-- Use **JWT** for secure API access  
-- **Validate** all user input to prevent bad data  
-- Use proper **HTTP status codes** and consistent **JSON responses**  
-- **Document** all API routes using Swagger  
-- **Test** every route using Postman  
-- Every **Pull Request** should have a **meaningful commit message**  
+- Use **JWT** for secure API access
+- **Validate** all user input to prevent bad data
+- Use proper **HTTP status codes** and consistent **JSON responses**
+- **Document** all API routes using Swagger
+- **Test** every route using Postman
+- Every **Pull Request** should have a **meaningful commit message**
 - Avoid messages like `"update"`
 
 ---
@@ -98,3 +134,46 @@ task-manager-api/
 ## 🚀 **Live Deployed Link**
 
 🔗 [https://task-manager-backend-api-z2wl.onrender.com](https://task-manager-backend-api-z2wl.onrender.com)
+
+---
+
+## 🧪 **Test with Postman – Example JSON**
+
+### 🔸 Signup
+
+```json
+POST /api/auth/signup
+{
+  "name": "Pavithra",
+  "email": "pavi@example.com",
+  "password": "12345678"
+}
+```
+
+### 🔸 Login
+
+```json
+POST /api/auth/login
+{
+  "email": "pavi@example.com",
+  "password": "12345678"
+}
+```
+
+### 🔸 Create Task
+
+```json
+POST /api/tasks
+{
+  "title": "Finish Bootcamp",
+  "status": "in progress",
+  "dueDate": "2025-06-20",
+  "userRef": "USER_ID"
+}
+```
+
+### 🧪 Test Links
+
+* [https://task-manager-backend-api-z2wl.onrender.com/api/auth/signup](https://task-manager-backend-api-z2wl.onrender.com/api/auth/signup)
+* [https://task-manager-backend-api-z2wl.onrender.com/api/auth/login](https://task-manager-backend-api-z2wl.onrender.com/api/auth/login)
+* [https://task-manager-backend-api-z2wl.onrender.com/api/tasks](https://task-manager-backend-api-z2wl.onrender.com/api/tasks)
