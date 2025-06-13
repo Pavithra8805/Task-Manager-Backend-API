@@ -16,13 +16,35 @@ const createTask = async (req, res) => {
     }
 };
 
-// Get all tasks
+// Get all tasks with filtering, pagination, and sorting
+
 const getAllTasks = async (req, res) => {
     try {
-        const tasks = await Task.find({ userRef: req.user._id });
+        const { status, page = 1, limit = 5, sortBy = 'dueDate', order = 'asc' } = req.query;
+
+        // filter object
+        const filter = { userRef: req.user._id };
+        if (status) filter.status = status;
+
+        // Sorting logic
+        const sortOrder = order === 'desc' ? -1 : 1;
+        const sort = { [sortBy]: sortOrder };
+
+        // Pagination
+        const skip = (page - 1) * limit;
+
+        const tasks = await Task.find(filter)
+            .sort(sort)
+            .skip(skip)
+            .limit(Number(limit));
+
+        const total = await Task.countDocuments(filter);
+
         res.status(200).json({
-            message: "📋 All tasks fetched successfully!",
+            message: "📋 Filtered tasks fetched successfully!",
             count: tasks.length,
+            page: Number(page),
+            totalPages: Math.ceil(total / limit),
             tasks,
         });
     } catch (err) {
