@@ -2,13 +2,14 @@
   "name": "task-manager-backend-api",
   "version": "1.0.0",
   "description": "A secure backend API for task management using Node.js, Express, and MongoDB",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["task manager", "backend", "nodejs", "express", "mongodb", "REST API"],
+  "author": "Pavithra Gurram",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^3.0.2",
