@@ -1,9 +1,15 @@
 const Task = require("../models/TaskModel");
+const sendEmail = require("../utils/sendEmail");
 
 // Create a task
 const createTask = async (req, res) => {
     try {
         const task = await Task.create({ ...req.body, userRef: req.user._id });
+        await sendEmail({
+            to: req.user.email,
+            subject: "✅ New Task Created",
+            text: `A new task "${task.title}" is created with status "${task.status}".`,
+        });
         res.status(201).json({
             message: "✅ Task created successfully!",
             task,

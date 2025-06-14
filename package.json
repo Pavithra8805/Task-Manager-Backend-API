@@ -8,7 +8,14 @@
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["task manager", "backend", "nodejs", "express", "mongodb", "REST API"],
+  "keywords": [
+    "task manager",
+    "backend",
+    "nodejs",
+    "express",
+    "mongodb",
+    "REST API"
+  ],
   "author": "Pavithra Gurram",
   "license": "ISC",
   "dependencies": {
@@ -19,6 +26,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.17.0",
     "mongoose": "^8.15.1",
+    "nodemailer": "^7.0.3",
     "nodemon": "^3.1.10",
     "swagger-ui-express": "^5.0.1"
   }
