@@ -32,6 +32,7 @@ const validateTask = (req, res, next) => {
         title: Joi.string().required(),
         status: Joi.string().valid('pending', 'in progress', 'completed').required(),
         dueDate: Joi.date().optional(),
+        tags: Joi.array().items(Joi.string()).optional(),
     });
 
     const { error } = schema.validate(req.body);

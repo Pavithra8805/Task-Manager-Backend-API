@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "33623e1b-3c39-4693-8aa5-1c4efe9d8dff",
+		"name": "Task Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45557215"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Pavithra\",\r\n  \"email\": \"pavithra@gmail.com\",\r\n  \"password\": \"pavithra\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Pavithra\",\r\n  \"email\": \"pavithra@gmail.com\",\r\n  \"password\": \"pavithra\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTask",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGQ5YTNkOTVlM2JhYTRiMTViZTVlNSIsImlhdCI6MTc0OTkxNjIzNCwiZXhwIjoxNzQ5OTE5ODM0fQ.11aUONg8ACx1MVL2ueoHXuTI2n4eMIpVWm0e2CzH5Nc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// {\r\n//   \"title\": \"Day 21\",\r\n//   \"status\": \"in progress\",\r\n//   \"dueDate\": \"2025-06-13\"\r\n// }\r\n\r\n{\r\n  \"title\": \"Day 22\",\r\n  \"status\": \"in progress\",\r\n  \"dueDate\": \"2025-06-14\",\r\n  \"tags\": [\"work\", \"priority\"]\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/tasks/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tasks",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllTasks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGQ5YTNkOTVlM2JhYTRiMTViZTVlNSIsImlhdCI6MTc0OTkxNjIzNCwiZXhwIjoxNzQ5OTE5ODM0fQ.11aUONg8ACx1MVL2ueoHXuTI2n4eMIpVWm0e2CzH5Nc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/tasks/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tasks",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTaskById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGQ5YTNkOTVlM2JhYTRiMTViZTVlNSIsImlhdCI6MTc0OTkxNjIzNCwiZXhwIjoxNzQ5OTE5ODM0fQ.11aUONg8ACx1MVL2ueoHXuTI2n4eMIpVWm0e2CzH5Nc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/tasks/684d9a8095e3baa4b15be5e9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tasks",
+						"684d9a8095e3baa4b15be5e9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTask",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGQ5YTNkOTVlM2JhYTRiMTViZTVlNSIsImlhdCI6MTc0OTkxNjIzNCwiZXhwIjoxNzQ5OTE5ODM0fQ.11aUONg8ACx1MVL2ueoHXuTI2n4eMIpVWm0e2CzH5Nc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// {\r\n//   \"title\": \"Day 21\",\r\n//   \"status\": \"completed\",\r\n//   \"dueDate\": \"2025-06-13\"\r\n// }\r\n{\r\n  \"title\": \"Day 22\",\r\n  \"status\": \"completed\",\r\n  \"dueDate\": \"2025-06-14\",\r\n  \"tags\": [\"work\", \"priority\"]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/tasks/684d9a8095e3baa4b15be5e9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tasks",
+						"684d9a8095e3baa4b15be5e9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTask",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGQ5YTNkOTVlM2JhYTRiMTViZTVlNSIsImlhdCI6MTc0OTkxNjIzNCwiZXhwIjoxNzQ5OTE5ODM0fQ.11aUONg8ACx1MVL2ueoHXuTI2n4eMIpVWm0e2CzH5Nc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/tasks/684d9a8095e3baa4b15be5e9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tasks",
+						"684d9a8095e3baa4b15be5e9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
