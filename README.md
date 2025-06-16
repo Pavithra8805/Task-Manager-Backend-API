@@ -137,6 +137,11 @@ npm run dev
 
 ---
 
+## 🚀 **Walkthrough Video Link**
+🔗 [https://drive.google.com/file/d/1pTSCOJFzGvkMV2iEhyujhm0l-48r6zuO/view?usp=sharing](https://drive.google.com/file/d/1pTSCOJFzGvkMV2iEhyujhm0l-48r6zuO/view?usp=sharing)
+
+---
+
 ## 🧪 **Test with Postman – Example JSON**
 
 ### 🔸 Signup
